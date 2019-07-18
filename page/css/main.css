@@ -104,68 +104,67 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
-  /* typography */
-  /* rem is equivalent to root em, in this case 16px or 1em */
-  h1,
-  h2,
-  h3 {
-    margin-top: 0;
-    margin-bottom: 0.5rem;
-  }
-  p {
-    margin-top: 0;
-    margin-bottom: 1rem;
-  }
+/* typography */
+/* rem is equivalent to root em, in this case 16px or 1em */
+h1,
+h2,
+h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
 
-  img {
-    max-width: 100%;
-  }
-  .container {
-    max-width: 1240px;
-    margin: 0 auto;
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-  #main-content {
-    padding-top: 1.875em;
-    padding-bottom: 1.875em;
-  }
-  .banner-cta {
-    text-align: center;
-    padding: 0.9375em;
-  }
-  a.button {
-    display: inline-block;
-    text-decoration: none;
-    color: #000000;
-    background-color: cornflowerblue;
-    font-size: 1rem;
-    padding: 0.9375em 1.875em; /*15px 30px*/
-    transition: 0.5s; /*transition on hover*/
-  }
-  a.button:hover {
-    background-color: pink;
-  }
-  #masthead,
-  #main-footer {
-    padding: 0.9375em 0;
-    background-color: black;
-  }
-  #masthead {
-    border-top: 5px solid cornflowerblue;
-  }
-  .logo {
-    text-align: center;
-  }
-  .column {
-    padding: 0.9375em; /*15px*/  
-  }
-  .column img {
-    width: 100%;
-  }
-
-
-
+img {
+  max-width: 100%;
+}
+.container {
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.row {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+#main-content {
+  padding-top: 1.875em;
+  padding-bottom: 1.875em;
+}
+.banner-cta {
+  text-align: center;
+  padding: 0.9375em;
+}
+a.button {
+  display: inline-block;
+  text-decoration: none;
+  color: #000000;
+  background-color: cornflowerblue;
+  font-size: 1rem;
+  padding: 0.9375em 1.875em; /*15px 30px*/
+  transition: 0.5s; /*transition on hover*/
+}
+a.button:hover {
+  background-color: pink;
+}
+#masthead,
+#main-footer {
+  padding: 0.9375em 0;
+  background-color: black;
+}
+#masthead {
+  border-top: 5px solid cornflowerblue;
+}
+.logo {
+  text-align: center;
+}
+.column {
+  padding: 0.9375em; /*15px*/
+}
 
 
 /* ==========================================================================
@@ -257,7 +256,16 @@ textarea {
    Modify as content requires.
    ========================================================================== */
 
+@media only screen and (min-width:576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
 @media only screen and (min-width: 768px) {
+  .container {
+    max-width: 760px;
+  }
   .row {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -289,21 +297,25 @@ textarea {
   }
 }
 @media only screen and (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
   .banner {
     position: relative;
   }
   .banner-cta {
     position: absolute;
     top: 0;
-    bottom:0;  
-    left:0;
+    bottom: 0;
+    left: 0;
     right: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1;
-  }  
-  .banner-cta:after { /*positions in relation to banner, since that is first position context with relative*/
+  }
+  .banner-cta:after {
+    /*positions in relation to banner, since that is first position context with relative*/
     content: "";
     display: block;
     position: absolute;
@@ -311,15 +323,19 @@ textarea {
     top: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0,0,0,0.1);
+    background-color: rgba(0, 0, 0, 0.1);
     z-index: -1;
   }
 }
 @media only screen and (min-width: 1200px) {
+  .container {
+    max-width: 1240px;
+  }
   .banner img {
     width: 100%;
   }
 }
+
 @media print,
   (-webkit-min-device-pixel-ratio: 1.25),
   (min-resolution: 1.25dppx),
@@ -392,4 +408,3 @@ textarea {
     page-break-after: avoid;
   }
 }
-
