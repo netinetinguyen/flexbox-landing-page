@@ -12,7 +12,8 @@
    ========================================================================== */
 
 html {
-  color: #222;
+  color: #404040;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1em;
   line-height: 1.4;
   box-sizing: border-box;
@@ -110,19 +111,32 @@ h1,
 h2,
 h3 {
   margin-top: 0;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.5em;
+}
+h2 {
+  font-size: 2rem;
+  font-family: "Oswald", sans-serif;
+  line-height: 1.2;
 }
 p {
   margin-top: 0;
   margin-bottom: 1rem;
+  font-size: 1.3rem; /*roughly 21px*/
+  font-weight: 300;
+  color: #666666;
 }
 img {
   max-width: 100%;
 }
+.uwm-gold {
+  color: #ffbd00;
+}
 .container {
   width: 100%;
-  margin-right: auto;
-  margin-left: auto;
+}
+.logo {
+  margin: 0 auto;
+  width: 120px;
 }
 .flex {
   display: -webkit-box;
@@ -138,34 +152,90 @@ img {
   -ms-flex-pack: center;
   justify-content: center;
 }
-.banner-cta {
-  text-align: center;
-  padding: 0.9375em;
+.button-container {
+  padding: 0.625rem 0; /*10px*/
+}
+h2 + .button-container {
+  padding: 1.25rem 0; /*20px if button follows h2*/
+}
+a {
+  text-decoration: none;
 }
 a.button {
   text-align: center;
   text-decoration: none;
-  color: #000000;
-  background-color: cornflowerblue;
+  color: #404040;
+  background-color: #ffbd00;
   font-size: 1rem;
-  padding: 0.9375em 1.875em;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  padding: 1.5rem 1.75rem; /*24px 28px*/
+  margin-right: 0.625rem; /*10px*/
+  margin-bottom: 1rem;
   transition: 0.5s; /*transition on hover*/
-  margin-right: 1em;
-  margin-bottom: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 a.button:hover {
-  background-color: pink;
+  background-color: #ffd14d;
 }
 #masthead,
-#main-footer {
-  padding: 0.9375em 0;
-  background-color: black;
+#main-footer,
+.logo,
+.banner-cta {
+  text-align: center;
 }
 #masthead {
-  border-top: 5px solid cornflowerblue;
+  border-top: 10px solid #ffbd00;
+  padding: 1.25em 0;
 }
-.logo {
-  text-align: center;
+#main-footer {
+  background-color: #333333;
+  color: #ffffff;
+}
+.site-footer .logo {
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+.copyright {
+  font-size: 1em;
+  color: #ffffff;
+  margin-bottom: 0;
+}
+.nowrap {
+  white-space: nowrap;
+}
+.content-inner,
+#main-footer {
+  padding: 2.5em; /*40px*/
+}
+.column:first-child {
+  height: 450px;
+}
+.park {
+  background-image: url(../img/uwm-mke-park.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.welcome {
+  background: url(../img/uwm-fallwelcome.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+#main-footer .content-inner {
+  padding: 2.5em 0 0;
 }
 
 /* ==========================================================================
@@ -258,34 +328,12 @@ a.button:hover {
    ========================================================================== */
 
 @media only screen and (min-width: 768px) {
-  .row {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    /* justify-content: center; */
+  .logo {
+    width: 185px;
   }
-  .row .column {
-    -webkit-box-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
-  }
-  .row.reverse {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: reverse;
-    -ms-flex-direction: row-reverse;
-    flex-direction: row-reverse;
-  }
-  .column.content {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    /* -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center; */
+  h2.lede {
+    color: #ffffff;
+    text-shadow: 1px 1px 2px black;
   }
   .banner {
     position: relative;
@@ -316,18 +364,72 @@ a.button:hover {
     top: 0;
     right: 0;
     bottom: 0;
-    /* background-color: rgba(0, 0, 0, 0.1); */
-    background-image: linear-gradient(180deg,transparent 0,transparent 50%,rgba(0,0,0,.75));
+    background-image: linear-gradient(
+      180deg,
+      transparent 0,
+      transparent 50%,
+      rgba(0, 0, 0, 0.75)
+    );
     z-index: -1;
+  }
+  .row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    /* justify-content: center; */
+  }
+  .row .column {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+  .row.reverse {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+  }
+  .column.content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  .column:first-child {
+    height: 525px;
+  }
+  .break {
+    display: block;
   }
 }
 @media only screen and (min-width: 992px) {
-  /* do I need anything here? */
+  .park,
+  .welcome {
+    background-position: left top;
+  }
+  h2 {
+    font-size: 2.6rem;
+  }
 }
 @media only screen and (min-width: 1200px) {
-  .banner img {
+  img {
     width: 100%;
   }
+  .column {
+    /* controls the padding, since em is scoped to nearest rem, we double the padding */
+    font-size: 2rem;
+  }
+  .column:first-child {
+    height: 610px;
+  }
+  h2 {
+    font-size: 3.4rem;
+  }
+
+  /* adjust footer padding for large monitor */
 }
 
 @media print,
